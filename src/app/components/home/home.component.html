@@ -1,14 +1,8 @@
 <div class="container">
-  <h1>home component</h1>
   <h1>I believe in you</h1>
-  <button type="button" class="btn btn-primary">Primary</button>
-  <button type="button" class="btn btn-secondary">Secondary</button>
-  <button type="button" class="btn btn-success">Success</button>
-  <button type="button" class="btn btn-danger">Danger</button>
-  <button type="button" class="btn btn-warning">Warning</button>
-  <button type="button" class="btn btn-info">Info</button>
-  <button type="button" class="btn btn-light">Light</button>
-  <button type="button" class="btn btn-dark">Dark</button>
-
-  <button type="button" class="btn btn-link">Link</button>
+  <hr />
+  <h2>{{ name }}</h2>
+  <button (click)="updateName()" type="button" class="btn btn-danger">
+    Update Name
+  </button>
 </div>

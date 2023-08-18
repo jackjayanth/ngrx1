@@ -1,1 +1,3 @@
-export const changeName = createA;
+import { createAction } from '@ngrx/store';
+
+export const changeName = createAction('changeName');
