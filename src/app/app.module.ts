@@ -7,7 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { StoreModule } from '@ngrx/store';
-import { appReducer } from './state/app.reducer';
+import { appReducer } from './app.state';
 
 @NgModule({
   declarations: [
@@ -16,11 +16,7 @@ import { appReducer } from './state/app.reducer';
     HomeComponent,
     ContactUsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    StoreModule.forRoot({ app: appReducer }),
-  ],
+  imports: [BrowserModule, AppRoutingModule, StoreModule.forRoot(appReducer)],
   providers: [],
   bootstrap: [AppComponent],
 })

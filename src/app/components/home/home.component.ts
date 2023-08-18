@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { changeName } from 'src/app/state/app.actions';
+import { AppState } from 'src/app/app.state';
+import { changeName } from 'src/app/state/home.actions';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,8 @@ import { changeName } from 'src/app/state/app.actions';
 })
 export class HomeComponent {
   name: string = '';
-  constructor(private store: Store<any>) {
-    this.store.select('app').subscribe((data) => {
+  constructor(private store: Store<AppState>) {
+    this.store.select('home').subscribe((data) => {
       this.name = data.name;
     });
   }
