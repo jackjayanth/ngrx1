@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { StoreModule } from '@ngrx/store';
 import { appReducer } from './app.state';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,12 @@ import { appReducer } from './app.state';
     HomeComponent,
     ContactUsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, StoreModule.forRoot(appReducer)],
+  imports: [
+    FormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    StoreModule.forRoot(appReducer),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
