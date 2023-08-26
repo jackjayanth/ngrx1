@@ -30,8 +30,10 @@ export class HomeComponent {
   }
 
   addTodo() {
-    this.store.dispatch(addTodo({ todoTask: this.newTodo }));
-    this.newTodo = '';
+    if (this.newTodo !== '') {
+      this.store.dispatch(addTodo({ todoTask: this.newTodo }));
+      this.newTodo = '';
+    }
   }
 
   deleteTodo(id: number) {

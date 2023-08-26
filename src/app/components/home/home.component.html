@@ -1,12 +1,11 @@
 <div class="container">
-  <br />
   <h2>{{ name }}</h2>
-  <button (click)="updateName()" type="button" class="btn btn-danger">
+  <button (click)="updateName()" type="button" class="btn btn-success">
     Update Name
   </button>
   <hr />
   <h3>Todos</h3>
-  <div style="width: 50%" class="input-group mb-3">
+  <div class="input-group mb-3">
     <input
       type="text"
       class="form-control"
@@ -18,9 +17,9 @@
     <div
       (click)="addTodo()"
       type="button"
-      class="input-group-append btn btn-success"
+      class="input-group-append btn btn-warning"
     >
-      <span class="input-group-text" id="basic-addon2" class="btn btn-success"
+      <span class="input-group-text" id="basic-addon2" class="btn btn-warning"
         >@Add Todos</span
       >
     </div>

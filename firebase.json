@@ -1,0 +1,11 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "dist/ngrx1",
+    "site": "lifeofjayantharawangrx",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}

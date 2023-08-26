@@ -14,5 +14,6 @@ export const initialState = {
   todos: [
     { todoId: 1, todoTask: 'Eat a cake', todoStatus: true },
     { todoId: 2, todoTask: 'Drink a lot of water', todoStatus: false },
+    { todoId: 3, todoTask: 'Get some somelight', todoStatus: true },
   ],
 };
