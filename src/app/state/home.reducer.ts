@@ -24,7 +24,17 @@ const _homeReducer = createReducer(
     return { ...state, todos: newTodos };
   }),
   on(changeStatusOfTodo, (state, action) => {
-    return { ...state };
+    const updatedPosts = state.todos.map((todo) => {
+      return action.todo.todoId === todo.todoId
+        ? { ...action.todo, todoStatus: !action.todo.todoStatus }
+        : todo;
+    });
+    console.log(JSON.stringify(updatedPosts));
+
+    return {
+      ...state,
+      todos: updatedPosts,
+    };
   })
 );
 

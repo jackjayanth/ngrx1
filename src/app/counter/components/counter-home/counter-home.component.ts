@@ -12,7 +12,6 @@ export class CounterHomeComponent {
   name: string = 'test';
   constructor(private store: Store<AppState>) {
     this.store.select('counter').subscribe((data) => {
-      console.log(data);
       this.name = data.counterName;
     });
   }

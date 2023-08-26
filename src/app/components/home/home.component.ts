@@ -20,7 +20,6 @@ export class HomeComponent {
   newTodo: string = '';
   constructor(private store: Store<AppState>) {
     this.store.select('home').subscribe((data) => {
-      console.log(data.todos);
       this.name = data.name;
       this.todos = data.todos;
     });
