@@ -1,5 +1,4 @@
-<h1>posts-home works!</h1>
-<hr />
+
 <h2>{{ name }}</h2>
 <button (click)="updateName()" type="button" class="btn btn-danger">
   Update Name
@@ -15,11 +14,12 @@
 <hr>
 <h1>Adding custom number to a value</h1>
 <h2>{{postsCustomAdd}}</h2>
-<label for="customNumber"><h5>Enter a number to ADD</h5></label>
+<label for="customNumber"><h5>Enter a number to ADD</h5></label> &nbsp;
 <input type="text" name="customNumber" [(ngModel)]="add">
 <button  class="btn btn-success" (click)="customAdd()">ADD</button>
 <br><br>
 <h2>{{postsCustomSubtract}}</h2>
-<label for="customNumber"><h5>Enter a number to SUBRACT</h5></label>
+<label for="customNumber"><h5>Enter a number to SUBRACT</h5></label> &nbsp;
 <input type="text" name="customNumber" [(ngModel)]="subtract">
 <button  class="btn btn-danger" (click)="customSubtract()">SUBTRACT</button>
+<hr>

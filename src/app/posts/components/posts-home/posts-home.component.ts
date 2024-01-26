@@ -42,11 +42,13 @@ export class PostsHomeComponent {
 
   customAdd(){
     this.store.dispatch(customAdd({postsCustomAdd:this.add}))
+    this.add = 0
   }
 
   customSubtract(){
     console.log('hello');
     
     this.store.dispatch(customSubtract({postsCustomSubtract:this.subtract}))
+    this.subtract = 0
   }
 }
