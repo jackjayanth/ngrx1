@@ -4,3 +4,31 @@
 <button (click)="updateName()" type="button" class="btn btn-danger">
   Update Name
 </button>
+<hr>
+<div *ngFor="let d of counterData">
+  <h2> <span>{{d.id}} &nbsp;</span>
+    <span>: &nbsp;</span>
+    <span>{{d.name}} &nbsp;</span>
+    <span>{{d.age}} &nbsp;</span>
+  </h2>
+</div>
+<hr>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name">
+    <!-- <div *ngIf="userForm.get('name').invalid && userForm.get('name').touched" class="error-message">
+      Name is required.
+    </div> -->
+  </div>
+
+  <div>
+    <label for="age">Age:</label>
+    <input type="number" id="age" formControlName="age">
+    <!-- <div *ngIf="userForm.get('age').invalid && userForm.get('age').touched" class="error-message">
+      Age is required and must be a positive number.
+    </div> -->
+  </div>
+
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>
