@@ -8,12 +8,12 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'contact-us', component: ContactUsComponent },
   {
-    path: 'counter',
+    path: 'posts',
     loadChildren: () =>
       import('./counter/counter.module').then((m) => m.CounterModule),
   },
   {
-    path: 'posts',
+    path: 'counter',
     loadChildren: () =>
       import('./posts/posts.module').then((m) => m.PostsModule),
   },

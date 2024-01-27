@@ -10,9 +10,10 @@ export interface Counter {
 }
 
 export const initialState = {
-  counterName: 'Jay counterName',
+  counterName: 'Jay',
   counterData: [
-    { id: 1, name: 'Jay', age:12 },
-    { id: 2, name: 'Lauru', age:22 }
+    { id: 1, name: 'Jay', age:32 },
+    { id: 2, name: 'Lauru', age:33 },
+    { id: 3, name: 'Madhuri', age:18 },
     ],
 };

@@ -3,3 +3,4 @@ import { Counter } from './counter.state';
 
 export const changeCounterName = createAction('changeCounterName');
 export const addCounter = createAction('addCounter', props<{ counterData: any }>());
+export const deleteCounter = createAction('deleteCounter', props<{ counterId: number }>());

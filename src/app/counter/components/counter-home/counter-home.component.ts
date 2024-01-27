@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
-import { addCounter, changeCounterName } from '../../state/counter.actions';
+import { addCounter, changeCounterName, deleteCounter } from '../../state/counter.actions';
 import { Counter } from '../../state/counter.state';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -27,10 +27,6 @@ export class CounterHomeComponent implements OnInit  {
   }
 
   ngOnInit() {
-    // this.userForm = this.fb.group({
-    //   name: ['', Validators.required],
-    //   age: ['', [Validators.required, Validators.min(0)]]
-    // });
   }
 
   onSubmit() {
@@ -38,6 +34,7 @@ export class CounterHomeComponent implements OnInit  {
       // Process the form data (e.g., send it to a server)
       console.log('Form submitted:', this.userForm.value);
       this.store.dispatch(addCounter({counterData:this.userForm.value}))
+      this.userForm.reset()
     } else {
       // Mark form controls as touched to display validation messages
       this.userForm.markAllAsTouched();
@@ -46,5 +43,9 @@ export class CounterHomeComponent implements OnInit  {
 
   updateName() {
     this.store.dispatch(changeCounterName());
+  }
+
+  delete(id: number){
+    this.store.dispatch(deleteCounter({counterId: id}))
   }
 }

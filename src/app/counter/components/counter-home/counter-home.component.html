@@ -1,34 +1,36 @@
-<h1>counter-home works!</h1>
-<hr />
-<h2>{{ name }}</h2>
-<button (click)="updateName()" type="button" class="btn btn-danger">
-  Update Name
-</button>
+
 <hr>
 <div *ngFor="let d of counterData">
   <h2> <span>{{d.id}} &nbsp;</span>
     <span>: &nbsp;</span>
     <span>{{d.name}} &nbsp;</span>
     <span>{{d.age}} &nbsp;</span>
+    <button (click)="delete(d.id)" type="button" class="btn btn-danger btn-sm">
+      <span class="glyphicon glyphicon-trash"></span> delete 
+    </button>
   </h2>
 </div>
 <hr>
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" formControlName="name">
-    <!-- <div *ngIf="userForm.get('name').invalid && userForm.get('name').touched" class="error-message">
+  <div class="input-group">
+    <label for="name"> <h4>Name</h4>
+    </label> &nbsp;&nbsp;&nbsp;
+    <input type="text" id="name"  class="form-control" formControlName="name">
+    <h2 *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="error-message">
       Name is required.
-    </div> -->
+    </h2>
   </div>
-
   <div>
-    <label for="age">Age:</label>
-    <input type="number" id="age" formControlName="age">
-    <!-- <div *ngIf="userForm.get('age').invalid && userForm.get('age').touched" class="error-message">
+    <label for="age"> <h4>Age</h4></label>
+    <input type="number" id="age" class="form-control" formControlName="age">
+    <div *ngIf="userForm.get('age')?.invalid && userForm.get('age')?.touched" class="error-message">
       Age is required and must be a positive number.
-    </div> -->
-  </div>
-
-  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+    </div>
+  </div><br>
+  <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">Submit</button>
 </form>
+<hr />
+<h2>{{ name }}</h2>
+<button (click)="updateName()" type="button" class="btn btn-danger">
+  Update Name
+</button>
