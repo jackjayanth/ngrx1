@@ -1,25 +1,32 @@
-
-<h2>{{ name }}</h2>
-<button (click)="updateName()" type="button" class="btn btn-danger">
-  Update Name
-</button>
-<hr>
-<h1>Increment Decrement and Reset!</h1>
-<h2>{{count}}</h2>
-<button (click)="incrementCount()" type="button" class="btn btn-danger">Increment count</button>
-&nbsp;
-<button (click)="resetCount()" type="button" class="btn btn-success">Reset count</button>
-&nbsp;
-<button (click)="decrementCount()" type="button" class="btn btn-info">Reset count</button>
-<hr>
-<h1>Adding custom number to a value</h1>
-<h2>{{postsCustomAdd}}</h2>
-<label for="customNumber"><h5>Enter a number to ADD</h5></label> &nbsp;
-<input type="text" name="customNumber" [(ngModel)]="add">
-<button  class="btn btn-success" (click)="customAdd()">ADD</button>
-<br><br>
-<h2>{{postsCustomSubtract}}</h2>
-<label for="customNumber"><h5>Enter a number to SUBRACT</h5></label> &nbsp;
-<input type="text" name="customNumber" [(ngModel)]="subtract">
-<button  class="btn btn-danger" (click)="customSubtract()">SUBTRACT</button>
-<hr>
+<div class="container">
+  <h2>{{ name }}</h2>
+  <button (click)="updateName()" type="button" class="btn btn-danger">
+    Update Name
+  </button>
+  <hr />
+  <h3>Increment Decrement and Reset!</h3>
+  <h2>{{ count }}</h2>
+  <button (click)="incrementCount()" type="button" class="btn btn-danger">
+    Increment count
+  </button>
+  &nbsp;
+  <button (click)="resetCount()" type="button" class="btn btn-success">
+    Reset count
+  </button>
+  &nbsp;
+  <button (click)="decrementCount()" type="button" class="btn btn-info">
+    Reset count
+  </button>
+  <hr />
+  <h3>Adding custom number to a value</h3>
+  <h2>{{ postsCustomAdd }}</h2>
+  <label for="customNumber"><h5>Enter a number to ADD</h5></label> &nbsp;
+  <input type="text" name="customNumber" [(ngModel)]="add" />
+  <button class="btn btn-success" (click)="customAdd()">ADD</button>
+  <br /><br />
+  <h2>{{ postsCustomSubtract }}</h2>
+  <label for="customNumber"><h5>Enter a number to SUBRACT</h5></label> &nbsp;
+  <input type="text" name="customNumber" [(ngModel)]="subtract" />
+  <button class="btn btn-danger" (click)="customSubtract()">SUBTRACT</button>
+  <hr />
+</div>
