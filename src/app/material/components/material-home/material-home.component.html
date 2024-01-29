@@ -1,0 +1,33 @@
+<p>material-home works!</p>
+<hr />
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile>First Grid</mat-grid-tile>
+  <mat-grid-tile>Second Grid</mat-grid-tile>
+  <mat-grid-tile>Third Grid</mat-grid-tile>
+  <mat-grid-tile>Fourth Grid</mat-grid-tile>
+  <mat-grid-tile>Fifth Grid</mat-grid-tile>
+  <mat-grid-tile>Sixth Frid</mat-grid-tile>
+</mat-grid-list>
+
+<hr />
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <p>Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button
+      type="button"
+      mat-raised-button
+      color="primary"
+      (click)="drawer.toggle()"
+    >
+      Toggle sidenav
+    </button>
+  </div>
+</mat-drawer-container>

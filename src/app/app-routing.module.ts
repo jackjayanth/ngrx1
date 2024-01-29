@@ -17,6 +17,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./posts/posts.module').then((m) => m.PostsModule),
   },
+  {
+    path: 'material',
+    loadChildren: () =>
+      import('./material/material.module').then((m) => m.MaterialModule),
+  },
 ];
 
 @NgModule({
