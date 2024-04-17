@@ -11,11 +11,24 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { WorkUxComponent } from './components/work-ux/work-ux.component';
 import { WorkUxComponent1 } from './components/work-ux1/work-ux1.component';
+import { SampleWorkComponent } from './components/sample-work/sample-work.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes = [{ path: '', component: MaterialHomeComponent }];
 
 @NgModule({
-  declarations: [MaterialHomeComponent, WorkUxComponent, WorkUxComponent1],
+  declarations: [
+    MaterialHomeComponent,
+    WorkUxComponent,
+    WorkUxComponent1,
+    SampleWorkComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -25,8 +38,15 @@ const routes: Routes = [{ path: '', component: MaterialHomeComponent }];
     MatCardModule,
     MatCheckboxModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
   ],
   exports: [RouterModule],
 })
-export class MaterialModule { }
+export class MaterialModule {}
