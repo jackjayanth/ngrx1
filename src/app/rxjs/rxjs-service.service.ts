@@ -3,6 +3,12 @@ import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
 import { interval, map, mergeMap, Observable, take } from 'rxjs';
 
+interface Person {
+  id: string;
+  age: number;
+  name: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -39,8 +45,19 @@ export class RxjsServiceService {
   private dbUrl = 'https://jtest-963e6-default-rtdb.firebaseio.com'; // Replace with your Firebase Realtime Database URL
 
   // GET request: Fetch data from Firebase
-  getDataa(): Observable<any> {
-    return this.http.get(`${this.dbUrl}/data.json`);
+  getDataa(): Observable<Person[]> {
+    return this.http
+      .get<{ [key: string]: { age: number; name: string } }>(
+        `${this.dbUrl}/data.json`
+      )
+      .pipe(
+        map((data) =>
+          Object.keys(data).map((key) => ({
+            id: key,
+            ...data[key],
+          }))
+        )
+      );
   }
 
   // POST request: Add new data to Firebase

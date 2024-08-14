@@ -43,7 +43,7 @@ export class RxjsHomeComponent implements OnInit {
 
   // PUT Data
   updateData() {
-    const updatedData = { name: 'Jane Doe', age: 25 };
+    const updatedData = { name: 'Jane Doee', age: 235 };
     this.dataService.putData(updatedData).subscribe(
       (response) => {
         console.log('Data updated successfully:', response);
