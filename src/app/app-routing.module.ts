@@ -22,6 +22,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./material/material.module').then((m) => m.MaterialModule),
   },
+  {
+    path: 'rxjs',
+    loadChildren: () => import('./rxjs/rxjs.module').then((m) => m.RxjsModule),
+  },
 ];
 
 @NgModule({
