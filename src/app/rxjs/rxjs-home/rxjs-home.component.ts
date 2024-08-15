@@ -20,16 +20,12 @@ import { getCounter, getName } from '../rxjs-state/rxjs.selector';
 export class RxjsHomeComponent implements OnInit {
   counter: number = 0;
   name: string = '';
-  ngOnInit(): void {
-    // this.rxjsService.getData().subscribe((data) => {
-    //   console.log('jay', data);
-    // });
-  }
 
   constructor(
     private dataService: RxjsServiceService,
     private store: Store<AppState>
   ) {
+    //this is the old way of not using a selector
     // this.store.select('rxjs').subscribe((data) => {
     //   console.log(data);
     // });
@@ -44,6 +40,8 @@ export class RxjsHomeComponent implements OnInit {
       console.log('selector name', data);
     });
   }
+
+  ngOnInit(): void {}
 
   // incrmeent counter
   increment() {
