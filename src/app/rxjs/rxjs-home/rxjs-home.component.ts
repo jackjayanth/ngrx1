@@ -1,5 +1,15 @@
-import { RxjsServiceService } from './../rxjs-service.service';
+import { RxjsServiceService } from '../rxjs-services/rxjs-service.service';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
+import {
+  decrementCounter,
+  doubleCounter,
+  incrementCounter,
+  reduceCounter,
+  resetCounter,
+  nameUpdate,
+} from '../rxjs-state/rxjs.actions';
 
 @Component({
   selector: 'app-rxjs-home',
@@ -7,18 +17,58 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rxjs-home.component.css'],
 })
 export class RxjsHomeComponent implements OnInit {
-  // constructor(private rxjsService: RxjsServiceService) {}
+  counter: number = 0;
+  name: string = '';
   ngOnInit(): void {
     // this.rxjsService.getData().subscribe((data) => {
     //   console.log('jay', data);
     // });
   }
 
-  constructor(private dataService: RxjsServiceService) {}
+  constructor(
+    private dataService: RxjsServiceService,
+    private store: Store<AppState>
+  ) {
+    this.store.select('rxjs').subscribe((data) => {
+      console.log(data);
+      this.counter = data.counter;
+      this.name = data.name;
+    });
+  }
+
+  // incrmeent counter
+  increment() {
+    this.store.dispatch(incrementCounter());
+  }
+
+  // decrement counter
+  decrement() {
+    this.store.dispatch(decrementCounter());
+  }
+
+  // doubleCounter
+  doubleCounter() {
+    this.store.dispatch(doubleCounter());
+  }
+
+  // reduceCounter
+  reduceCounter() {
+    this.store.dispatch(reduceCounter());
+  }
+
+  // resetCounter
+  resetCounter() {
+    this.store.dispatch(resetCounter());
+  }
+
+  // updateName
+  updateName() {
+    this.store.dispatch(nameUpdate());
+  }
 
   // GET Data
   fetchData() {
-    this.dataService.getDataa().subscribe(
+    this.dataService.getRXJSData().subscribe(
       (response) => {
         console.log('Data fetched successfully:', response);
       },

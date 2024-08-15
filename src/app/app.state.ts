@@ -4,6 +4,8 @@ import { materialReducer } from './material/state/material.reducer';
 import { MaterialState } from './material/state/material.state';
 import { postsReducer } from './posts/state/posts.reducer';
 import { PostsState } from './posts/state/posts.state';
+import { rxjsReducer } from './rxjs/rxjs-state/rxjs.reducer';
+import { RXJSState } from './rxjs/rxjs-state/rxjs.state';
 import { homeReducer } from './state/home.reducer';
 import { HomeState } from './state/home.state';
 
@@ -12,6 +14,7 @@ export interface AppState {
   counter: CounterState;
   posts: PostsState;
   material: MaterialState;
+  rxjs: RXJSState;
 }
 
 export const appReducer = {
@@ -19,4 +22,5 @@ export const appReducer = {
   counter: counterReducer,
   posts: postsReducer,
   material: materialReducer,
+  rxjs: rxjsReducer,
 };

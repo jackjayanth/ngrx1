@@ -2,21 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
 import { interval, map, mergeMap, Observable, take } from 'rxjs';
-
-interface Person {
-  id: string;
-  age: number;
-  name: string;
-}
+import { Person } from '../rxjs.models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RxjsServiceService {
   private users = 'https://jsonplaceholder.typicode.com/users';
-  private comments = 'https://jsonplaceholder.typicode.com/comments';
-  private albums = 'https://jsonplaceholder.typicode.com/albums';
-  private posts = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: HttpClient) {}
 
@@ -36,16 +28,10 @@ export class RxjsServiceService {
     );
   }
 
-  getComments() {}
-
-  getAlbums() {}
-
-  getPosts() {}
-
   private dbUrl = 'https://jtest-963e6-default-rtdb.firebaseio.com'; // Replace with your Firebase Realtime Database URL
 
   // GET request: Fetch data from Firebase
-  getDataa(): Observable<Person[]> {
+  getRXJSData(): Observable<Person[]> {
     return this.http
       .get<{ [key: string]: { age: number; name: string } }>(
         `${this.dbUrl}/data.json`
