@@ -10,6 +10,7 @@ import {
   resetCounter,
   nameUpdate,
 } from '../rxjs-state/rxjs.actions';
+import { getCounter, getName } from '../rxjs-state/rxjs.selector';
 
 @Component({
   selector: 'app-rxjs-home',
@@ -29,10 +30,18 @@ export class RxjsHomeComponent implements OnInit {
     private dataService: RxjsServiceService,
     private store: Store<AppState>
   ) {
-    this.store.select('rxjs').subscribe((data) => {
-      console.log(data);
-      this.counter = data.counter;
-      this.name = data.name;
+    // this.store.select('rxjs').subscribe((data) => {
+    //   console.log(data);
+    // });
+
+    //selector code and getting data from selector
+    this.store.select(getCounter).subscribe((data) => {
+      this.counter = data;
+      console.log('selector counter', data);
+    });
+    this.store.select(getName).subscribe((data) => {
+      this.name = data;
+      console.log('selector name', data);
     });
   }
 
