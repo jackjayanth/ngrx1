@@ -48,13 +48,15 @@ export class RxjsServiceService {
 
   // POST request: Add new data to Firebase
   postData(data: any): Observable<any> {
-    return this.http.post(`${this.dbUrl}/data.json`, data);
+    let newData = { name: data.name, age: data.age };
+    return this.http.post(`${this.dbUrl}/data.json`, newData);
   }
 
   // PUT request: Update data at a specific location
   putData(data: any): Observable<any> {
     const id = data.id;
-    return this.http.put(`${this.dbUrl}/data/${id}.json`, data);
+    let newData = { name: data.name, age: data.age };
+    return this.http.put(`${this.dbUrl}/data/${id}.json`, newData);
   }
 
   // DELETE request: Remove data from Firebase

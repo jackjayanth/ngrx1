@@ -113,6 +113,7 @@ export class RxjsHomeComponent implements OnInit {
   }
 
   onEdit() {
+    this.showSubmit = true;
     if (this.userForm.valid) {
       let formData = this.userForm.value;
       formData.id = this.personIdEdit;
