@@ -60,7 +60,7 @@ export class RxjsServiceService {
   }
 
   // DELETE request: Remove data from Firebase
-  deleteData(): Observable<any> {
-    return this.http.delete(`${this.dbUrl}/data.json`);
+  deleteData(id: any): Observable<any> {
+    return this.http.delete(`${this.dbUrl}/data/${id}.json`);
   }
 }

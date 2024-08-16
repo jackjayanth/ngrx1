@@ -23,7 +23,7 @@ const routes: Routes = [
       import('./material/material.module').then((m) => m.MaterialModule),
   },
   {
-    path: 'rxjs',
+    path: 'ngrx',
     loadChildren: () => import('./rxjs/rxjs.module').then((m) => m.RxjsModule),
   },
 ];

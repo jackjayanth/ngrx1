@@ -1,4 +1,6 @@
 import {
+  deletePerson,
+  loadPeople,
   postPersonWithoutId,
   updatePerson,
 } from './../rxjs-state/rxjs.actions';
@@ -138,9 +140,25 @@ export class RxjsHomeComponent implements OnInit {
     }
   }
 
-  delete() {}
+  delete(id: any) {
+    this.dataService.deleteData(id).subscribe(
+      (response) => {
+        alert('deleted');
+        this.store.dispatch(
+          deletePerson({
+            id: id,
+          })
+        );
+      },
+      (error) => {
+        console.error('Error deleting data:', error);
+      }
+    );
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.dispatch(loadPeople());
+  }
 
   // incrmeent counter
   increment() {
@@ -170,55 +188,5 @@ export class RxjsHomeComponent implements OnInit {
   // updateName
   updateName() {
     this.store.dispatch(nameUpdate());
-  }
-
-  // GET Data
-  fetchData() {
-    this.dataService.getRXJSData().subscribe(
-      (response) => {
-        console.log('Data fetched successfully:', response);
-      },
-      (error) => {
-        console.error('Error fetching data:', error);
-      }
-    );
-  }
-
-  // POST Data
-  addData() {
-    const newData = { name: 'John Doe', age: 30 };
-    this.dataService.postData(newData).subscribe(
-      (response) => {
-        console.log('Data added successfully:', response);
-      },
-      (error) => {
-        console.error('Error adding data:', error);
-      }
-    );
-  }
-
-  // PUT Data
-  updateData() {
-    const updatedData = { name: 'Jane Doee', age: 235 };
-    this.dataService.putData(updatedData).subscribe(
-      (response) => {
-        console.log('Data updated successfully:', response);
-      },
-      (error) => {
-        console.error('Error updating data:', error);
-      }
-    );
-  }
-
-  // DELETE Data
-  removeData() {
-    this.dataService.deleteData().subscribe(
-      (response) => {
-        console.log('Data deleted successfully:', response);
-      },
-      (error) => {
-        console.error('Error deleting data:', error);
-      }
-    );
   }
 }

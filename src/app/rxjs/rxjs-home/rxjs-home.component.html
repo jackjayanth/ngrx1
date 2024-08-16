@@ -1,7 +1,7 @@
 <div class="container">
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div>
-      <label for="name">Name:</label>
+      <label for="name" style="color: white">Name:</label>
       <input id="name" formControlName="name" type="text" />
       <div *ngIf="name?.invalid && name?.touched">
         <small *ngIf="name?.errors?.['required']">Name is required.</small>
@@ -15,7 +15,7 @@
     </div>
 
     <div>
-      <label for="age">Age:</label>
+      <label for="age" style="color: white">Age:</label>
       <input id="age" formControlName="age" type="number" />
       <div *ngIf="age?.invalid && age?.touched">
         <small *ngIf="age?.errors?.['required']">Age is required.</small>
@@ -60,7 +60,11 @@
             Edit
           </button>
           &nbsp;
-          <button type="button" class="btn btn-danger" (click)="delete()">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="delete(person.id)"
+          >
             Delete
           </button>
         </td>
@@ -93,11 +97,5 @@
   <button type="button" class="btn btn-primary" (click)="resetCounter()">
     Reset Counter
   </button>
-  &nbsp;
-  <br />
-  <br />
-  <button (click)="fetchData()">Get Data</button>
-  <button (click)="addData()">Post Data</button>
-  <button (click)="updateData()">Put Data</button>
-  <button (click)="removeData()">Delete Data</button>
+  <br /><br /><br />
 </div>

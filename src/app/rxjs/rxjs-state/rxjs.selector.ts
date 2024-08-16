@@ -14,5 +14,5 @@ export const getName = createSelector(getRXJSState, (state) => {
 });
 
 export const getPersons = createSelector(getRXJSState, (state) => {
-  return state.persons;
+  return state.people;
 });

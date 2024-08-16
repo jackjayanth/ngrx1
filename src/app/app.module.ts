@@ -11,6 +11,8 @@ import { appReducer } from './app.state';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { PersonEffects } from './rxjs/rxjs-state/rxjs.effects';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     StoreModule.forRoot(appReducer),
     BrowserAnimationsModule,
     HttpClientModule,
+    EffectsModule.forRoot([PersonEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

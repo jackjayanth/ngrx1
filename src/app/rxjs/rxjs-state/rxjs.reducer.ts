@@ -6,6 +6,8 @@ import {
   doubleCounter,
   getPersons,
   incrementCounter,
+  loadPeopleFailure,
+  loadPeopleSuccess,
   nameUpdate,
   postPerson,
   postPersonWithoutId,
@@ -17,6 +19,15 @@ import { Person } from '../rxjs.models';
 
 const _rxjsReducer = createReducer(
   rxjsInitialState,
+  on(loadPeopleSuccess, (state, { people }) => ({
+    ...state,
+    people,
+    error: null,
+  })),
+  on(loadPeopleFailure, (state, { error }) => ({
+    ...state,
+    error,
+  })),
   on(incrementCounter, (state) => {
     return { ...state, counter: state.counter + 1 };
   }),
@@ -36,28 +47,29 @@ const _rxjsReducer = createReducer(
     return { ...state, name: state.name + ' updated' };
   }),
   on(getPersons, (state) => {
-    return { ...state, persons: state.persons };
+    return { ...state, people: state.people };
   }),
   on(postPerson, (state, action) => {
     let person = {} as Person;
-    person.id = state.persons.length + 1;
+    person.id = state.people.length + 1;
     person.name = action.person.name;
     person.age = action.person.age;
-    return { ...state, persons: [...state.persons, person] };
+    return { ...state, people: [...state.people, person] };
   }),
   on(postPersonWithoutId, (state, action) => {
-    return { ...state, persons: [...state.persons, action.person] };
+    return { ...state, people: [...state.people, action.person] };
   }),
   on(updatePerson, (state, action) => {
-    const updatedPersons = state.persons.map((person) => {
+    const updatedPersons = state.people.map((person) => {
       return person.id === action.person.id
         ? { ...person, ...action.person }
         : person;
     });
-    return { ...state, persons: updatedPersons };
+    return { ...state, people: updatedPersons };
   }),
-  on(deletePerson, (state) => {
-    return { ...state };
+  on(deletePerson, (state, action) => {
+    let people = state.people.filter((elem) => elem.id !== action.id);
+    return { ...state, people: people };
   })
 );
 

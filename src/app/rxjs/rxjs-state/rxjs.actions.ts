@@ -24,3 +24,13 @@ export const deletePerson = createAction(
   'deletePerson',
   props<{ id: number }>()
 );
+
+export const loadPeople = createAction('loadPeople');
+export const loadPeopleSuccess = createAction(
+  'loadPeopleSuccess',
+  props<{ people: Person[] }>()
+);
+export const loadPeopleFailure = createAction(
+  'loadPeopleFailure',
+  props<{ error: any }>()
+);
