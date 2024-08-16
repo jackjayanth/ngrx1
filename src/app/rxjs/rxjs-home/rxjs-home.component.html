@@ -23,8 +23,21 @@
       </div>
     </div>
 
-    <button class="btn btn-success" type="submit" [disabled]="userForm.invalid">
+    <button
+      *ngIf="showSubmit"
+      class="btn btn-success"
+      type="submit"
+      [disabled]="userForm.invalid"
+    >
       Submit
+    </button>
+    <button
+      *ngIf="!showSubmit"
+      class="btn btn-success"
+      (click)="onEdit()"
+      [disabled]="userForm.invalid"
+    >
+      Update
     </button>
   </form>
 
@@ -34,6 +47,7 @@
         <th scope="col">Id</th>
         <th scope="col">Name</th>
         <th scope="col">Age</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -41,11 +55,20 @@
         <td>{{ person.id }}</td>
         <td>{{ person.name }}</td>
         <td>{{ person.age }}</td>
+        <td>
+          <button type="button" class="btn btn-info" (click)="edit(person)">
+            Edit
+          </button>
+          &nbsp;
+          <button type="button" class="btn btn-danger" (click)="delete()">
+            Delete
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
   <br /><br /><br />
-  <h1>{{ name1 }}</h1>
+  <h1>{{ myName }}</h1>
   <button type="button" class="btn btn-success" (click)="updateName()">
     Update name
   </button>

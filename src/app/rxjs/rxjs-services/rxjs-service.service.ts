@@ -53,7 +53,8 @@ export class RxjsServiceService {
 
   // PUT request: Update data at a specific location
   putData(data: any): Observable<any> {
-    return this.http.put(`${this.dbUrl}/data/-O4DeabOW6bconPf8K2L.json`, data);
+    const id = data.id;
+    return this.http.put(`${this.dbUrl}/data/${id}.json`, data);
   }
 
   // DELETE request: Remove data from Firebase

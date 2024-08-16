@@ -24,9 +24,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RxjsHomeComponent implements OnInit {
   counter: number = 0;
-  name1: string = '';
+  myName: string = '';
   persons: Person[] = [];
   userForm: FormGroup;
+  showSubmit: boolean = true;
+  personIdEdit: any;
 
   constructor(
     private dataService: RxjsServiceService,
@@ -56,7 +58,7 @@ export class RxjsHomeComponent implements OnInit {
       console.log('selector counter', data);
     });
     this.store.select(getName).subscribe((data) => {
-      this.name1 = data;
+      this.myName = data;
       console.log('selector name', data);
     });
     this.store.select(getPersons).subscribe((data) => {
@@ -100,6 +102,41 @@ export class RxjsHomeComponent implements OnInit {
   get age() {
     return this.userForm.get('age');
   }
+
+  edit(person: Person) {
+    this.userForm.setValue({ name: person.name, age: person.age });
+    this.showSubmit = false;
+    this.personIdEdit = person.id;
+  }
+
+  onEdit() {
+    if (this.userForm.valid) {
+      let formData = this.userForm.value;
+      this.dataService.putData(this.userForm.value).subscribe(
+        (response) => {
+          console.log('Data updated successfully:', response);
+          // let personData = formData;
+          // personData.id = response.name;
+          // console.log(personData);
+          // this.store.dispatch(
+          //   postPersonWithoutId({
+          //     person: personData,
+          //   })
+          // );
+        },
+        (error) => {
+          console.error('Error updating data:', error);
+        }
+      );
+      alert('Form submitted successfully!');
+      // Reset form after submission
+      this.userForm.reset();
+    } else {
+      console.log('Form is invalid');
+    }
+  }
+
+  delete() {}
 
   ngOnInit(): void {}
 
