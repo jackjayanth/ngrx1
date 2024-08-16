@@ -1,3 +1,4 @@
+import { postPersonWithoutId } from './../rxjs-state/rxjs.actions';
 import { getName } from './../rxjs-state/rxjs.selector';
 import { RxjsServiceService } from '../rxjs-services/rxjs-service.service';
 import { Component, OnInit } from '@angular/core';
@@ -66,12 +67,23 @@ export class RxjsHomeComponent implements OnInit {
 
   onSubmit() {
     if (this.userForm.valid) {
-      this.store.dispatch(
-        postPerson({
-          person: this.userForm.value,
-        })
+      let formData = this.userForm.value;
+      this.dataService.postData(this.userForm.value).subscribe(
+        (response) => {
+          console.log('Data updated successfully:', response);
+          let personData = formData;
+          personData.id = response.name;
+          console.log(personData);
+          this.store.dispatch(
+            postPersonWithoutId({
+              person: personData,
+            })
+          );
+        },
+        (error) => {
+          console.error('Error updating data:', error);
+        }
       );
-      console.log(this.userForm.value);
       alert('Form submitted successfully!');
       // Reset form after submission
       this.userForm.reset();

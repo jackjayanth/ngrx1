@@ -12,6 +12,10 @@ export const postPerson = createAction(
   'postPerson',
   props<{ person: Person }>()
 );
+export const postPersonWithoutId = createAction(
+  'postPersonWithoutId',
+  props<{ person: Person }>()
+);
 export const updatePerson = createAction('updatePerson', props<Person>());
 export const deletePerson = createAction(
   'deletePerson',

@@ -8,6 +8,7 @@ import {
   incrementCounter,
   nameUpdate,
   postPerson,
+  postPersonWithoutId,
   reduceCounter,
   resetCounter,
 } from './rxjs.actions';
@@ -37,27 +38,14 @@ const _rxjsReducer = createReducer(
     return { ...state, persons: state.persons };
   }),
   on(postPerson, (state, action) => {
-    // let todos = {} as Todo;
-    // todos.todoTask = action.todoTask;
-    // todos.todoId = state.todos.length + 1;
-    // todos.todoStatus = false;
-    // return { ...state, todos: [...state.todos, todos] };
-    console.log(action.person);
-
     let person = {} as Person;
     person.id = state.persons.length + 1;
     person.name = action.person.name;
     person.age = action.person.age;
     return { ...state, persons: [...state.persons, person] };
-
-    // let posts = { ...state.persons };
-    // // let length: number = +posts.length + 1;
-    // // let person = action.person;
-    // // person.id = length;
-    // posts.push(action.person);
-    // console.log('from the reducer', posts);
-    // console.log('from the reducer', { ...state, persons: posts });
-    // return { ...state, persons: posts };
+  }),
+  on(postPersonWithoutId, (state, action) => {
+    return { ...state, persons: [...state.persons, action.person] };
   }),
   on(postPerson, (state) => {
     return { ...state };
