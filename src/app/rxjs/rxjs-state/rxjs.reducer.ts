@@ -11,6 +11,7 @@ import {
   postPersonWithoutId,
   reduceCounter,
   resetCounter,
+  updatePerson,
 } from './rxjs.actions';
 import { Person } from '../rxjs.models';
 
@@ -47,8 +48,13 @@ const _rxjsReducer = createReducer(
   on(postPersonWithoutId, (state, action) => {
     return { ...state, persons: [...state.persons, action.person] };
   }),
-  on(postPerson, (state) => {
-    return { ...state };
+  on(updatePerson, (state, action) => {
+    const updatedPersons = state.persons.map((person) => {
+      return person.id === action.person.id
+        ? { ...person, ...action.person }
+        : person;
+    });
+    return { ...state, persons: updatedPersons };
   }),
   on(deletePerson, (state) => {
     return { ...state };
