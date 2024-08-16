@@ -12,3 +12,7 @@ export const getCounter = createSelector(getRXJSState, (state) => {
 export const getName = createSelector(getRXJSState, (state) => {
   return state.name;
 });
+
+export const getPersons = createSelector(getRXJSState, (state) => {
+  return state.persons;
+});

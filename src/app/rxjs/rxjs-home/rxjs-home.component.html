@@ -1,5 +1,51 @@
 <div class="container">
-  <h1>{{ name }}</h1>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" type="text" />
+      <div *ngIf="name?.invalid && name?.touched">
+        <small *ngIf="name?.errors?.['required']">Name is required.</small>
+        <small *ngIf="name?.errors?.['maxlength']"
+          >Name cannot be longer than 20 characters.</small
+        >
+        <small *ngIf="name?.errors?.['pattern']"
+          >Name can only contain letters and spaces.</small
+        >
+      </div>
+    </div>
+
+    <div>
+      <label for="age">Age:</label>
+      <input id="age" formControlName="age" type="number" />
+      <div *ngIf="age?.invalid && age?.touched">
+        <small *ngIf="age?.errors?.['required']">Age is required.</small>
+        <small *ngIf="age?.errors?.['pattern']">Age must be a number.</small>
+      </div>
+    </div>
+
+    <button class="btn btn-success" type="submit" [disabled]="userForm.invalid">
+      Submit
+    </button>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of persons">
+        <td>{{ person.id }}</td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br /><br /><br />
+  <h1>{{ name1 }}</h1>
   <button type="button" class="btn btn-success" (click)="updateName()">
     Update name
   </button>

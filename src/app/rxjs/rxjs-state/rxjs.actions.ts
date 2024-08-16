@@ -8,9 +8,12 @@ export const reduceCounter = createAction('reduceCounter');
 export const resetCounter = createAction('resetCounter');
 export const nameUpdate = createAction('nameUpdate');
 export const getPersons = createAction('getPersons');
-export const postPerson = createAction('postPerson', props<Person>());
+export const postPerson = createAction(
+  'postPerson',
+  props<{ person: Person }>()
+);
 export const updatePerson = createAction('updatePerson', props<Person>());
-export const deletePersons = createAction(
-  'deletePersons',
+export const deletePerson = createAction(
+  'deletePerson',
   props<{ id: number }>()
 );
