@@ -82,11 +82,11 @@ export class RxjsHomeComponent implements OnInit {
 
   // Getter methods for easier access to form controls in the template
   get name() {
-    return this.userForm.get('name')?.value;
+    return this.userForm.get('name');
   }
 
   get age() {
-    return this.userForm.get('age')?.value;
+    return this.userForm.get('age');
   }
 
   ngOnInit(): void {}
