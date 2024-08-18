@@ -5,11 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { PersonEffects } from './rxjs-state/rxjs.effects';
+import { CodeDisplayComponent } from './code-display/code-display.component';
 
 const routes: Routes = [{ path: '', component: RxjsHomeComponent }];
 
 @NgModule({
-  declarations: [RxjsHomeComponent],
+  declarations: [RxjsHomeComponent, CodeDisplayComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

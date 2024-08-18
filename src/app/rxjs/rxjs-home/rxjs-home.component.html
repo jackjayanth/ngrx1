@@ -1,4 +1,8 @@
 <div class="container">
+  <app-code-display [code]="exampleCode" [language]="'javascript'">
+  </app-code-display>
+
+  <br /><br /><br />
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div>
       <label for="name" style="color: white">Name:</label>
