@@ -1,8 +1,4 @@
 <div class="container">
-  <app-code-display [code]="exampleCode" [language]="'javascript'">
-  </app-code-display>
-
-  <br /><br /><br />
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div>
       <label for="name" style="color: white">Name:</label>
@@ -101,5 +97,9 @@
   <button type="button" class="btn btn-primary" (click)="resetCounter()">
     Reset Counter
   </button>
+  <br /><br /><br />
+  <app-code-display [code]="exampleCode" [language]="'javascript'">
+  </app-code-display>
+
   <br /><br /><br />
 </div>
