@@ -1,0 +1,53 @@
+<button
+  type="button"
+  mat-raised-button
+  color="primary"
+  (click)="drawer.toggle()"
+>
+  Toggle sidenav
+</button>
+<mat-drawer-container
+  class="example-container"
+  autosize
+  style="height: 100%; border: 1px solid #444444"
+>
+  <mat-drawer #drawer opened class="example-sidenav" mode="side">
+    <button type="button" mat-raised-button (click)="showComponent('home')">
+      Home
+    </button>
+    <br />
+    <br />
+    <button type="button" mat-raised-button (click)="showComponent('ux')">
+      UX
+    </button>
+    <br />
+    <br />
+    <button type="button" mat-raised-button (click)="showComponent('ux1')">
+      UX!
+    </button>
+    <br />
+    <br />
+    <button type="button" mat-raised-button (click)="showComponent('sample')">
+      Sample
+    </button>
+    <br />
+    <br />
+  </mat-drawer>
+
+  <div class="example-sidenav-content" style="background-color: #444444">
+    <div class="container">
+      <div *ngIf="show == 'home'">
+        <h1>hi jay</h1>
+      </div>
+      <div *ngIf="show == 'ux'">
+        <app-work-ux></app-work-ux>
+      </div>
+      <div *ngIf="show == 'ux1'">
+        <app-work-ux1></app-work-ux1>
+      </div>
+      <div *ngIf="show == 'sample'">
+        <app-sample-work></app-sample-work>
+      </div>
+    </div>
+  </div>
+</mat-drawer-container>

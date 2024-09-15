@@ -1,0 +1,350 @@
+
+
+
+        <div>
+          <mat-card class=" mat-card ng-star-inserted">
+            <mat-card-header class=" mat-card-header" style="   background-color: #205081; padding: 1%;
+                margin-left: 0px;">
+              <div class="mat-card-header-text"></div>
+              <div class="col-sm-12 text-center padding-5" style="color: #ffffff;">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-md-3">Application Window</div>
+                    <div class="col-md-3">Assigned to</div>
+                    <div class="col-md-3">District Office</div>
+                    <div class="col-md-3">
+                      <button class="btn btn-success">Transfer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </mat-card-header>
+            <mat-card-content class="mat-card-content" style="margin-top: 10px;">
+              <mat-card-content class="mat-card-content">
+                <div class="container-fluid">
+                  <div class="col-sm-12" style="background-color: #d3e2f2;">
+                    <div class="row">
+                      <div class="col-md-1"></div>
+                      <div class="col-md-3">SEBT Application</div>
+                      <div class="col-md-3">First Last</div>
+                      <div class="col-md-3">000</div>
+                      <div class="col-md-2"></div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="clearfix"></div>
+        <mat-card class="margin-bottom-30 mat-card">
+          <mat-card-header class=" mat-card-header"
+            style=" background-color: #205081; padding: 1%; margin-top: 0px; margin-left: 0px;">
+            <div class="mat-card-header-text"></div>
+            <div aria-label="Program Status" class="col-sm-12 text-center padding-5" id="programStatus"
+              style="color: #ffffff;"> Head of Household Information </div>
+          </mat-card-header>
+          <mat-card-content class="mat-card-content">
+            <div>
+              <div class="col-sm-12">
+                <br>
+                <div class="row">
+                  <div class="col-md-2"><label aria-label="First Last" class="label-field">Name</label><br>
+                    <span aria-label="first last">First Last</span>
+                  </div>
+                  <div class="col-md-3">
+                    <label aria-label="Residential Address" class="label-field">Residential
+                      Address</label><br>
+                    <span aria-label="2099 Old Liberty road Westminster MD 21157">2099 Old Liberty
+                      road Westminster MD 21157</span>
+                    <br>
+                    <label aria-label="Mailing Address" class="label-field">Mailing
+                      Address</label><br>
+                    <span aria-label="2099 Old Liberty road Westminster MD 21157">2099 Old Liberty
+                      road Westminster MD 21157</span>
+                  </div>
+                  <div class="col-md-3">
+                    <span>
+                      <mat-checkbox>In Foster Care</mat-checkbox>
+                      <mat-checkbox>Unhoused/Homeless</mat-checkbox>
+                      <mat-checkbox>Child of Migrant Worker</mat-checkbox>
+                      <mat-checkbox>Runaway from home</mat-checkbox>
+                    </span>
+                  </div>
+                  <div class="col-md-2">
+                    <label aria-label="Phone Number" class="label-field">Phone Number
+                    </label><br>
+                    <span>888-888-8888</span><br><br>
+                    <label aria-label="Email" class="label-field">Email
+                    </label>
+                    <span>sebt@gmail.com</span>
+                  </div>
+                  <div class="col-md-2">
+                    <label aria-label="Preferred Language" class="label-field">Preferred Language
+                    </label><br>
+                    <span>English</span>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <div class="clearfix"></div>
+        <mat-card class="margin-bottom-30 mat-card">
+          <mat-card-header class=" mat-card-header" style="   background-color: #205081; padding: 1%; margin-top: 0px;
+                margin-left: 0px;">
+            <div class="mat-card-header-text"></div>
+            <div class="col-sm-12 text-center padding-5" style="color: #ffffff;"> Customer Portal Applications
+            </div>
+          </mat-card-header>
+          <mat-card-content class="mat-card-content">
+            <mat-tab-group>
+              <mat-tab label="Intake">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="position">
+                    <th mat-header-cell *matHeaderCellDef> Web Ref # </th>
+                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                  </ng-container>
+
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Full Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  </ng-container>
+
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="weight">
+                    <th mat-header-cell *matHeaderCellDef> Created Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="symbol">
+                    <th mat-header-cell *matHeaderCellDef> Submitted Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                  </ng-container>
+
+                  <!-- Position1 Column -->
+                  <ng-container matColumnDef="position1">
+                    <th mat-header-cell *matHeaderCellDef> Submitted By </th>
+                    <td mat-cell *matCellDef="let element"> {{element.position1}} </td>
+                  </ng-container>
+
+                  <!-- Name1 Column -->
+                  <ng-container matColumnDef="name1">
+                    <th mat-header-cell *matHeaderCellDef> App Type </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name1}} </td>
+                  </ng-container>
+
+                  <!-- Weight1 Column -->
+                  <ng-container matColumnDef="weight1">
+                    <th mat-header-cell *matHeaderCellDef> Case Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.weight1}} </td>
+                  </ng-container>
+
+                  <!-- Symbol1 Column -->
+                  <ng-container matColumnDef="symbol1">
+                    <th mat-header-cell *matHeaderCellDef> Application Form </th>
+                    <td mat-cell *matCellDef="let element"> {{element.symbol1}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+              </mat-tab>
+              <mat-tab label="Intake">
+                <div>
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <div class="col-md-1"><label aria-label="Web Ref # " class="label-field">Web
+                          Ref #
+                        </label><br>
+                        <span aria-label=""></span>
+                      </div>
+                      <div class="col-md-1"><label aria-label="Full Name" class="label-field">Full
+                          Name</label><br>
+                        <span aria-label=""></span>
+                      </div>
+                      <div class="col-md-1"><label aria-label="Created Date" class="label-field">Created
+                          Date</label><br>
+                        <span aria-label=""></span>
+                      </div>
+                      <div class="col-md-1"><label aria-label="Submitted Date" class="label-field">Submitted
+                          Date</label><br>
+                        <span aria-label=""></span>
+                      </div>
+                      <div class="col-md-1"><label aria-label="Submitted By" class="label-field">Submitted
+                          By</label><br>
+                        <span aria-label=""></span>
+                      </div>
+                      <div class="col-md-1"><label aria-label="App Type" class="label-field">App
+                          Type</label><br>
+                        <span aria-label=""></span>
+                      </div>
+                      <div class="col-md-1"><label aria-label="Case Status" class="label-field">Case
+                          Status</label><br>
+                        <span aria-label=""></span>
+                      </div>
+                      <div class="col-md-1"><label aria-label="Application Form" class="label-field">Application
+                          Form</label><br>
+                        <span aria-label=""></span>
+                      </div>
+                      <div class="col-md-1"><label aria-label="" class="label-field"></label><br>
+                        <span aria-label=""></span>
+                      </div>
+                      <div class="col-md-3"><label aria-label="" class="label-field"></label><br>
+                        <span aria-label=""></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </mat-card-content>
+        </mat-card>
+        <div class="clearfix"></div>
+        <div class="ng-star-inserted">
+          <mat-card class="margin-bottom-30 mat-card ng-star-inserted">
+            <mat-card-header class=" mat-card-header" style="   background-color: #205081; padding: 1%; margin-top: 0px;
+                margin-left: 0px;">
+              <div class="mat-card-header-text"></div>
+              <div class="col-sm-12 text-center padding-5" style="color: #ffffff;"> Program
+                Details </div>
+            </mat-card-header>
+            <mat-card-content class="mat-card-content" style="margin-top: 10px;">
+              <mat-card-content class="mat-card-content">
+                <div class="container-fluid">
+                  <div class="row mat-elevation-z8 fullWidth">
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <div class="col-md-2"><label aria-label="" class="label-field">
+                            Program Name</label><br>
+                          <!-- <span aria-label="first last">First Last</span> -->
+                        </div>
+                        <div class="col-md-2"><label aria-label="" class="label-field">
+                            Application Date</label><br>
+                          <!-- <span aria-label="first last">First Last</span> -->
+                        </div>
+                        <div class="col-md-2">
+                          <label aria-label="" class="label-field">
+                            Program Status Date</label><br>
+                          <!-- <span aria-label="2099 Old Liberty road Westminster MD 21157">2099 Old Liberty
+                                                  road
+                                                  Westminster MD 21157</span> -->
+                        </div>
+                        <div class="col-md-2">
+                          <label aria-label="" class="label-field">Residential
+                            Status</label><br>
+                          <!-- <span aria-label="2099 Old Liberty road Westminster MD 21157">2099 Old Liberty
+                                                  road
+                                                  Westminster MD 21157</span> -->
+                        </div>
+                        <div class="col-md-2">
+                          <label aria-label="" class="label-field">Program Mode
+                          </label><br>
+                          <!-- <span>888-888-8888</span> -->
+                        </div>
+                        <div class="col-md-2">
+                          <label aria-label="" class="label-field">EBT IRN
+                          </label><br>
+                          <span>123456789</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="clearfix"></div>
+        <div class="ng-star-inserted">
+          <mat-card class="margin-bottom-30 mat-card ng-star-inserted">
+            <mat-card-header class=" mat-card-header" style="   background-color: #205081; padding: 1%; margin-top: 0px;
+                margin-left: 0px;">
+              <div class="mat-card-header-text"></div>
+              <div class="col-sm-12 text-center padding-5" style="color: #ffffff;"> Eligibility Summary
+              </div>
+            </mat-card-header>
+            <mat-card-content class="mat-card-content" style="margin-top: 10px;">
+              <mat-card-content class="mat-card-content">
+                <div class="container-fluid">
+                  <div class="row mat-elevation-z8 fullWidth">
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <div class="col-md-2"><label aria-label="" class="label-field">
+                            Houseold</label><br>
+                          <!-- <span aria-label="first last">First Last</span> -->
+                        </div>
+                        <div class="col-md-2"><label aria-label="" class="label-field">
+                            Program Name</label><br>
+                          <!-- <span aria-label="first last">First Last</span> -->
+                        </div>
+                        <div class="col-md-2">
+                          <label aria-label="" class="label-field">
+                            Eligibility Begin Date</label><br>
+                          <!-- <span aria-label="2099 Old Liberty road Westminster MD 21157">2099 Old Liberty
+                                                  road
+                                                  Westminster MD 21157</span> -->
+                        </div>
+                        <div class="col-md-2">
+                          <label aria-label="" class="label-field">
+                            Eligibility End Date</label><br>
+                          <!-- <span aria-label="2099 Old Liberty road Westminster MD 21157">2099 Old Liberty
+                                                  road
+                                                  Westminster MD 21157</span> -->
+                        </div>
+                        <div class="col-md-2">
+                          <label aria-label="" class="label-field">
+                          </label><br>
+                          <!-- <span>888-888-8888</span> -->
+                        </div>
+                        <div class="col-md-2">
+                          <label aria-label="" class="label-field">
+                          </label><br>
+                          <!-- <span></span> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="clearfix"></div>
+        <div class="ng-star-inserted">
+          <mat-card class="margin-bottom-30 mat-card ng-star-inserted">
+            <mat-card-header class=" mat-card-header" style="   background-color: #205081; padding: 1%; margin-top: 0px;
+                margin-left: 0px;">
+              <div class="mat-card-header-text"></div>
+              <div class="col-sm-12 text-center padding-5" style="color: #ffffff;"> Companion Cases
+              </div>
+            </mat-card-header>
+            <mat-card-content class="mat-card-content" style="margin-top: 10px;">
+              <mat-card-content class="mat-card-content">
+                <div class="container-fluid">
+                  <div class="row mat-elevation-z8 fullWidth">
+                    <div class="col-sm-12">
+                      <div class="row">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="clearfix"></div>
+        <div class="btnWrapper"><button aria-label="Next" aria-labelledby="Next"
+            class="pull-right mat-raised-button mat-primary" color="primary" mat-raised-button=""
+            ng-reflect-color="primary"><span class="mat-button-wrapper">Next <i
+                class="material-icons">navigate_next</i></span>
+            <div class="mat-button-ripple mat-ripple" matripple="" ng-reflect-centered="false"
+              ng-reflect-disabled="false" ng-reflect-trigger="[object HTMLButtonElement]"></div>
+            <div class="mat-button-focus-overlay"></div>
+          </button></div>
